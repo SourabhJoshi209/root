@@ -1,0 +1,280 @@
+:root {
+  --dark: #264653;
+  --green: #2a9d8f;
+  --yellow: #e9c46a;
+  --cream: #f4a261;
+  --orange: #e76f51;
+  --milk: #f1f5f8;
+  --max-width: 1170px;
+  --fixed-width: 620px;
+  --transition: all 0.3s linear;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Sofia","Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--milk);
+  
+  font-size: 1rem;
+}
+a,
+ul,
+svg,
+body {
+  color: var(--dark);
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  text-transform: capitalize;
+}
+i,
+svg {
+  pointer-events: none;
+}
+h1 {
+  font-size: 1.5rem;
+  font-family: "Sofia", sans-serif;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+div,
+p,
+input,
+button,
+textarea {
+  font-size: 1rem;
+}
+label {
+  font-size: 0.875rem;
+}
+@media screen and (min-width: 800px) {
+  body {
+    font-size: 1.1rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  div,
+  p,
+  input,
+  button,
+  textarea {
+    font-size: 1.2rem;
+  }
+  label {
+    font-size: 1rem;
+  }
+}
+
+
+.section {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+.title {
+  padding: 3rem 0 1rem;
+}
+
+@media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+  .title {
+    padding: 3rem 0 1.75rem;
+  }
+}
+
+.border {
+  border: 1px solid magenta;
+}
+
+.underline {
+  width: 6rem;
+  height: 0.25rem;
+  border-radius: 1rem;
+  background-color: var(--dark);
+  margin: 1rem auto;
+}
+
+
+header {
+  text-align: center;
+  margin: 1rem;
+}
+#search-form {
+  margin: 3rem auto;
+  width: 90%;
+  max-width: var(--fixed-width);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+}
+#search-input {
+  padding: 0.5rem;
+  outline: 0;
+  border: 2px solid var(--dark);
+  border-radius: 15px;
+}
+#search-form :hover{
+  border: 2px solid rgb(50, 228, 255);
+}
+
+#search-btn {
+  border-radius: 15px;
+  padding: 0.5rem;
+  outline: 0;
+  border: 0;
+  color: var(--milk);
+  background-color: var(--orange);
+  cursor: pointer;
+  transition: var(--transition);
+}
+#search-btn:hover {
+  background-color: var(--green);
+}
+.image-gallery {
+  display: grid;
+  gap: 1rem;
+}
+.image-preview {
+  height: 400px;
+}
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+}
+.image-preview :hover{
+  filter: brightness(0.8);
+  border: 2px solid rgb(50, 228, 255);
+
+}
+.image-data {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+
+@media screen and (min-width: 600px) {
+  .image-gallery {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .image-data a {
+    font-size: 1rem;
+  }
+  .image-data a:hover {
+    text-decoration: underline;
+  }
+}
+@media screen and (min-width: 992px) {
+  .image-gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+#error-message {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+
+#loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: var(--transition);
+}
+#loader-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+  .loader {
+    width: 8px;
+    height: 48px;
+    display: block;
+    margin: auto;
+    left: -20px;
+    position: relative;
+    border-radius: 4px;
+    box-sizing: border-box;
+    animation: animloader 1s linear infinite alternate;
+  }
+  
+  @keyframes animloader {
+    0% {
+      box-shadow: 20px 0 rgba(255, 255, 255, 0.25), 40px 0 white, 60px 0 white;
+    }
+    50% {
+      box-shadow: 20px 0 white, 40px 0 rgba(255, 255, 255, 0.25), 60px 0 white;
+    }
+    100% {
+      box-shadow: 20px 0 white, 40px 0 white, 60px 0 rgba(255, 255, 255, 0.25);
+    }
+  }
+      
+
+
+footer {
+  background-color: #000000;
+}
+footer .section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+footer img {
+  max-width: 100px;
+  vertical-align: middle;
+}
+footer a {
+  color: var(--milk);
+}

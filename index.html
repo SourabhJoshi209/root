@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Sticker Gallery- Sourabh Joshi" />
+    <link rel="icon" href="finn2.svg" />
+    <title>Sticker Gallery</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon">
+    <link rel="stylesheet" href="imgapi.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="font-effect-neon"><a href="#">Sticker Gallery</a></h1>
+    </header>
+    <main class="section">
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Search here..."/>
+        <button type="submit" id="search-btn">Go</button>
+      </form>
+      <h3 id="error-message"></h3>
+      <div class="image-gallery" id="image-gallery">
+        <!---->
+      </div>  
+    </main>
+    <footer>
+      <div class="section">
+        <a class="provider" href="https://giphy.com">Powered By Giphy</a>
+
+        <a class="" href="https://giphy.com">
+          <img src="https://media.giphy.com/media/3o6gbbuLW76jkt8vIc/giphy.gif" alt="">
+        </a>
+      </div>
+    </footer>
+    <div id="loader-container"><span class="loader"></span></div>
+
+    <script src="imgapi.js"></script>
+    
+  </body>
+</html>
